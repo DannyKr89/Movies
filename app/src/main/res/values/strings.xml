@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Movies</string>
+    <string name="check_internet_connection">Check internet connection</string>
+    <string name="retry">Retry</string>
 </resources>

@@ -10,6 +10,8 @@
         android:id="@+id/rv_movies"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbarThumbVertical="@color/white"
+        android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_movie" />
 

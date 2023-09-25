@@ -1,8 +1,9 @@
 package ru.dk.movies.domain
 
-import kotlinx.coroutines.flow.Flow
-import ru.dk.movies.data.retrofit.MovieResponse
+import androidx.lifecycle.LiveData
+import androidx.paging.PagingData
+import ru.dk.movies.data.model.MovieDTO
 
 interface MoviesRepo {
-    suspend fun getMovies(): Flow<MovieResponse>
+    fun getMovies(): LiveData<PagingData<MovieDTO>>
 }
