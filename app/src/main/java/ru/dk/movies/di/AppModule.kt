@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import ru.dk.movies.data.MoviesRepoImpl
 import ru.dk.movies.data.retrofit.MoviesApi
 import ru.dk.movies.domain.MoviesRepo
+import ru.dk.movies.ui.detail.MovieDetailsViewModel
 import ru.dk.movies.ui.movies.MovieAdapter
 import ru.dk.movies.ui.movies.MoviesViewModel
 
@@ -23,4 +24,5 @@ val appModule = module {
     single<MoviesApi> { get<Retrofit>().create(MoviesApi::class.java) }
     single<MoviesRepo> { MoviesRepoImpl(get()) }
     viewModel { MoviesViewModel(get()) }
+    viewModel { MovieDetailsViewModel(get()) }
 }

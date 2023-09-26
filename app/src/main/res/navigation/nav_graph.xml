@@ -7,5 +7,13 @@
     <fragment
         android:id="@+id/moviesFragment"
         android:name="ru.dk.movies.ui.movies.MoviesFragment"
-        android:label="MoviesFragment" />
+        android:label="MoviesFragment">
+        <action
+            android:id="@+id/action_moviesFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="ru.dk.movies.ui.detail.MovieDetailFragment"
+        android:label="MovieDetailFragment" />
 </navigation>

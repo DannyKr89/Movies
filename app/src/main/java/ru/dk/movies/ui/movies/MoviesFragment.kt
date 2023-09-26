@@ -3,6 +3,7 @@ package ru.dk.movies.ui.movies
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -43,6 +44,13 @@ class MoviesFragment : Fragment(R.layout.fragment_moveis) {
 
     private fun showData(pagingData: PagingData<MovieDTO>) {
         adapter.submitData(lifecycle, pagingData)
+        adapter.listener = {
+            findNavController().navigate(
+                R.id.action_moviesFragment_to_movieDetailFragment, Bundle().apply
+                {
+                    putInt("id", it.id)
+                })
+        }
 
     }
 

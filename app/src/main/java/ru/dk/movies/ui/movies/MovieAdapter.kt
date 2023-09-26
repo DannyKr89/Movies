@@ -12,7 +12,10 @@ import ru.dk.movies.data.model.MovieDTO
 import ru.dk.movies.databinding.ItemMovieBinding
 
 class MovieAdapter : PagingDataAdapter<MovieDTO, MovieAdapter.MovieViewHolder>(COMPARATOR) {
-    class MovieViewHolder(private val binding: ItemMovieBinding) : ViewHolder(binding.root) {
+
+    var listener: ((MovieDTO) -> Unit)? = null
+
+    inner class MovieViewHolder(private val binding: ItemMovieBinding) : ViewHolder(binding.root) {
 
         fun bind(movie: MovieDTO) {
             binding.apply {
@@ -26,6 +29,9 @@ class MovieAdapter : PagingDataAdapter<MovieDTO, MovieAdapter.MovieViewHolder>(C
                 tvMovieName.text = movie.name
                 tvMovieYear.text = movie.year.toString()
                 tvMovieRating.text = String.format("%.1f", movie.rating.kp)
+                root.setOnClickListener {
+                    listener?.invoke(movie)
+                }
 
             }
         }
